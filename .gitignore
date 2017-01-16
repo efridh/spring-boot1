@@ -1,0 +1,8 @@
+target/
+/doc/
+/test-output/
+
+.settings
+.project
+.classpath
+*~
