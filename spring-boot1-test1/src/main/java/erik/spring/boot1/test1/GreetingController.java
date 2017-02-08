@@ -68,6 +68,13 @@ public class GreetingController
 			name));
 	}
 	
+	@RequestMapping("/greeting2")
+	public String greeting2(@RequestParam(value = "name",
+		defaultValue = "World") String name)
+	{
+		return String.format(template, name);
+	}
+	
 //	@RequestMapping(value = "/error", name = "error")
 //	public Greeting error(@RequestParam(value = "name",
 //	defaultValue = "World") String name)
