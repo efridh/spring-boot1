@@ -4,12 +4,18 @@ import java.util.Arrays;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.EnableAutoConfigurationImportSelector;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import org.springframework.boot.context.TypeExcludeFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
@@ -47,6 +53,22 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * 
  * <p>
  * https://spring.io/guides/gs/rest-service
+ * </p>
+ * 
+ * <p>
+ * <ul><li>{@link SpringBootApplication}
+ * 		<ul>
+ * 		<li>{@link SpringBootConfiguration}
+ * 			<ul><li>{@link Configuration}</li></ul></li>
+ * 		<li>{@link EnableAutoConfiguration}
+ * 			<ul><li>{@link AutoConfigurationPackage}</li>
+ * 			<li>{@link Import}({@link EnableAutoConfigurationImportSelector}.class)</li></ul></li>
+ * 		<li>{@link ComponentScan}(excludeFilters = {@link ComponentScan.Filter}
+ * 				(type = {@link FilterType#CUSTOM}, classes = {@link TypeExcludeFilter}.class))
+ * 			<ul><li>{@link Repeatable}({@link ComponentScans}.class)</li></ul></li>
+ * 		</ul>
+ * </ul>
+ * </p>
  */
 @SpringBootApplication
 public class Application
